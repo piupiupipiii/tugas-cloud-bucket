@@ -6,18 +6,6 @@ app = Flask(__name__)
 storage_client = storage.Client()
 bucket = storage_client.bucket('nadella-files')
 
-import google.auth
-
-creds, project = google.auth.default()
-print(f"Using credentials from: {creds}")
-
-@app.route("/test-upload")
-def test_upload():
-    bucket = storage_client.bucket("nadella-files")
-    blob = bucket.blob("test_upload.txt")
-    blob.upload_from_string("Hello from Flask!")
-    return "Uploaded!"
-
 @app.route('/')
 def index():
     return render_template('index.html')  # Render file index.html
