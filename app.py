@@ -4,7 +4,7 @@ from google.cloud import storage
 app = Flask(__name__)
 
 storage_client = storage.Client()
-bucket = storage_client.bucket('nadella-files')  
+bucket = storage_client.bucket('nadella-web-upload')  
 
 @app.route('/')
 def index():
